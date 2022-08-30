@@ -1,6 +1,3 @@
-
-
-
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
@@ -48,7 +45,39 @@ function addPagination(list){
     }
 }
 
-
 // Call functions
 showPage(data,1);
 addPagination(data);
+
+//initial button setup for the first button to be active
+let buttonElements = document.querySelectorAll("button");
+buttonElements[0].classList.add("active");
+
+//loops through all buttons and adds click event listeners
+for(let i = 0; i < buttonElements.length; i++){
+    buttonElements[i].addEventListener("click", buttonClick);
+}
+
+function buttonClick(event){
+    //grabs button number and stores it in variable
+    let num = parseInt(event.target.innerHTML);
+    
+    //selects all buttons
+    let buttonElements = document.querySelectorAll("button");
+
+    //loops through buttons
+    for(let i = 0; i < buttonElements.length; i++){
+        //checks if button is the current one clicked
+        if(i === (num - 1)){
+            //adds class active
+            buttonElements[i].classList.add("active");
+        }
+        else{
+            //removes class active
+            buttonElements[i].classList.remove("active");
+        }
+    }
+    
+    //updates page to page user clicked
+    showPage(data,num);
+}
