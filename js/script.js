@@ -11,9 +11,13 @@ function showPage(list,page){
     let startIndex = (page * numberPerPage) - numberPerPage;
     let endIndex = 0;
 
-    //check to see if length is less than 9 for endIndex
+    //check to see if length is less than numberPerPage for endIndex
     if(list.length > numberPerPage){
         endIndex = page * numberPerPage;
+        //checking to see if endIndex is greater length length of list
+        if(endIndex > list.length){
+            endIndex = list.length;
+        }
     }
     else{
         endIndex = list.length;
