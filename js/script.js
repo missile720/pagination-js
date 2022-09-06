@@ -144,7 +144,7 @@ function search(event){
         //loops through data array
         for(let i = 0; i < data.length; i++){
             //checks data array if it contains search field value
-            if(data[i].name.first.toLowerCase().includes(input.toLowerCase()) || data[i].name.last.toLowerCase().includes(input.toLowerCase())){
+            if(data[i].name.first.toLowerCase().includes(input.toLowerCase()) || data[i].name.last.toLowerCase().includes(input.toLowerCase()) || data[i].registered.date.includes(input)){
                 //pushes data into arrayHolder
                 arrayHolder.push(data[i]);
             }
